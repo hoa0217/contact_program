@@ -26,7 +26,7 @@ int main(void) {
 	while(1){
 		printf("**** Welcome to Contact Management System ****\n\n");
 		printf("MAIN MENU\n");
-		printf("===============\n");
+		printf("=========================================================\n");
 		printf("[1] Add a new Contact\n");
 		printf("[2] List all Contacts\n");
 		printf("[3] Search for contact\n");
@@ -34,7 +34,7 @@ int main(void) {
 		printf("[5] Delete a Contact\n");
 		printf("[6] Eater Egg\n");
 		printf("[0] Exit\n");
-		printf("===============\n");
+		printf("=========================================================\n");
 		printf("Enter the choice: \n");
 		scanf("%d", &input);
 		
@@ -85,12 +85,12 @@ void add(User* ptr, int*num){
           scanf("%s", ptr[*num].email);
 
           (*num)++;
-          printf("===============\n");
+          printf("=========================================================\n");
           printf("\tSuccessful Data Inserted \n\n");
      }
      
      else
-          printf("  Data Full \n\n");
+          printf("\tData Full \n\n");
     }
 
 //2번 리스트 출력  
@@ -103,12 +103,14 @@ void list(User* ptr, int*num){
                printf("\tAddress: %s", ptr[i].address);
                printf("\tEmail: %s\n", ptr[i].email);
           }
-          printf("\n\t\tSuccessful Data Print \n\n");
+          printf("=========================================================\n");
+          printf("\tSuccessful Data Print \n\n");
      }
-     else
-          printf("\tNo Data \n\n");
+     else{
+     	printf("=========================================================\n");
+        printf("\tNo Data \n\n");
     }
-
+}
 
 //3번 검색기능  
 int search(User* ptr, int*num){
@@ -125,15 +127,18 @@ int search(User* ptr, int*num){
 				printf("\tTel: %s", ptr[i].number);
 				printf("\tAddress: %s", ptr[i].address);
 				printf("\tEmail: %s\n", ptr[i].email);
+				printf("=========================================================\n");
 				printf("\tSuccessful Data Found\n\n");
 				return 0;
 			}
 		}
+		printf("=========================================================\n");
 		printf("\tNot Found\n\n");
 		return 0;
 	} 
 	//저장된 데이터가 없다면 
 	else{
+		printf("=========================================================\n");
 		printf("\tNo Data\n\n");
 	}
 }
@@ -149,10 +154,10 @@ void edit(User* ptr, int*num){
 		scanf("%s", name);
 		for(i=0;i<MAX_NUM;i++){
 			if(!strcmp(name,ptr[i].name)){
-				printf("===============\n");
-				printf("Data found\n");
-				printf("pleas edit start!\n");
-				printf("===============\n");
+				printf("=========================================================\n");
+				printf("\tData found\n");
+				printf("\tpleas edit start!\n");
+				printf("=========================================================\n");
 				printf("Input Name: ");
 		        scanf("%s", ptr[i].name);
 		        printf("Input Phone number: ");
@@ -161,15 +166,18 @@ void edit(User* ptr, int*num){
 		        scanf("%s", ptr[i].address);
 		        printf("Input Email: ");
 		        scanf("%s", ptr[i].email);
+		        printf("=========================================================\n");
 				printf("\tData edit success!\n\n");
 				return 0;
 			}
 		}
+		printf("=========================================================\n");
 		printf("\tNot Found\n\n");
 		return 0;
 	} 
 	//저장된 데이터가 없다면 
 	else{
+		printf("=========================================================\n");
 		printf("\tNo Data\n\n");
 	}
 }
@@ -188,6 +196,7 @@ int deleted(User* ptr, int*num){
                //문자열이므로 비교하기위해 strcmp사용
                if (strcmp(name, ptr[i].name) == 0){
                     (*num)--;
+                    printf("=========================================================\n");
                     printf("\tSuccessful Data Deleted \n\n");
 
 
@@ -220,32 +229,45 @@ int deleted(User* ptr, int*num){
                 return 0;
                }
           }
+          printf("=========================================================\n");
           printf("\tNot Found \n\n");
           return 0;
 	}
 	else{
+		printf("=========================================================\n");
 		printf("\tNo data \n\n");
 	}
 }
 //이스터에그  
 void egg(User* ptr, int*num){
 	if (*num < MAX_NUM){
-		ptr[*num].name= "HAN YEON JAE";
-		ptr[*num].number= "01033797498";
-		ptr[*num].address= "Wonju";
-		ptr[*num].email= "kevin7498@naver.com";
+		char name1[30]= "HAN YEON JAE";;
+		char number1[30]= "01033797498";
+		char address1[30]= "Wonju";
+		char email1[30]="kevin7498@naver.com";
+		char name2[30]= "HEO JEONG HWA";
+		char number2[30]= "01033541083";
+		char address2[30]= "Suncheon";
+		char email2[30]="gjwjdghk123@gmail.com";
+		strcpy(ptr[*num].name,name1);
+		strcpy(ptr[*num].number,number1);
+		strcpy(ptr[*num].address,address1);
+		strcpy(ptr[*num].email,email1);
 		++(*num);
-		ptr[*num].name="HEO JEONG HWA";
-		ptr[*num].number="01033541083";
-		ptr[*num].address="Suncheon";
-		ptr[*num].email="gjwjdghk123@gmail.com";
+		strcpy(ptr[*num].name,name2);
+		strcpy(ptr[*num].number,number2);
+		strcpy(ptr[*num].address,address2);
+		strcpy(ptr[*num].email,email2);
         (*num)++;
-        printf("\t this is egg!\n");
-        printf("\t please check list!\n");
+        printf("=========================================================\n");
+        printf("\tthis is egg!\n");
+        printf("\tplease check list!\n\n");
+        
      }
      
      else
           {
+          	printf("=========================================================\n");
           	printf("\tSorry...full\n\n");
 		  }
 }
