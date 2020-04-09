@@ -14,7 +14,7 @@ void add(User*ptr,int*num);
 int deleted(User*ptr,int*num);
 int search(User*ptr,int*num);
 void list(User*ptr,int*num);
-void edit(User*ptr,int*num);
+int edit(User*ptr,int*num);
 void egg(User*ptr,int*num);
 
 int main(void) {
@@ -124,7 +124,7 @@ int search(User* ptr, int*num){
 		for(i=0;i<MAX_NUM;i++){
 			if(!strcmp(name,ptr[i].name)){
 				printf("Name: %s", ptr[i].name);
-				printf("\tTel: %s", ptr[i].number);
+				printf("\tPhone: %s", ptr[i].number);
 				printf("\tAddress: %s", ptr[i].address);
 				printf("\tEmail: %s\n", ptr[i].email);
 				printf("=========================================================\n");
@@ -144,7 +144,7 @@ int search(User* ptr, int*num){
 }
 
 //4번 데이터 편집  
-void edit(User* ptr, int*num){
+int edit(User* ptr, int*num){
 	char name[30];
 	int i;
 	
